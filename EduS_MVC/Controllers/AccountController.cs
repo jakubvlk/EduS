@@ -79,7 +79,11 @@ namespace EduS_MVC.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, propertyValues:
+                        new { FirstName = model.FirstName, LastName = model.LastName, Phone = model.Phone,
+                              BirthDate = model.BirthDate, Email = model.Email, Address = model.Address,
+                              DegreeBefore = model.DegreeBefore, DegreeAfter = model.DegreeAfter
+                        });
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }

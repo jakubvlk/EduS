@@ -86,6 +86,39 @@ namespace EduS_MVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //[Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        //[Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        //[Required]
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
+
+        //[Required]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [Display(Name = "Birth Date")]
+        public string BirthDate { get; set; }
+
+        //[Required]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        //[Required]
+        [Display(Name = "Adddress")]
+        public string Address { get; set; }
+
+        //[Required]
+        [Display(Name = "Degree Before")]
+        public string DegreeBefore { get; set; }
+
+        //[Required]
+        [Display(Name = "Degree After")]
+        public string DegreeAfter { get; set; }
     }
 
     public class ExternalLogin
