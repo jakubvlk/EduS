@@ -172,6 +172,21 @@ namespace EduS_MVC.Controllers
                         changePasswordSucceeded = false;
                     }
 
+                    // Zmena ostatnich udaju
+                    int userId = WebSecurity.CurrentUserId;
+                    // Get the userprofile
+                    var db = new UsersContext();
+                    UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserId == userId);
+
+                    // Update fields
+                    user.Phone = model.Phone;
+                    user.Address = model.Address;
+                    user.Email = model.Email;
+
+                    db.Entry(user).State = System.Data.EntityState.Modified;
+
+                    db.SaveChanges();
+
                     if (changePasswordSucceeded)
                     {
                         return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
