@@ -63,6 +63,8 @@ namespace EduS_MVC.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+           // model.RolesList = Roles.GetAllRoles().ToList();
+
             return View();
         }
 
@@ -85,12 +87,16 @@ namespace EduS_MVC.Controllers
                               DegreeBefore = model.DegreeBefore, DegreeAfter = model.DegreeAfter
                         });
                     //WebSecurity.Login(model.UserName, model.Password);
+
+                    Roles.AddUserToRole(model.UserName, model.Role);
+
                     return RedirectToAction("AllUsers", "Users");
                 }
                 catch (MembershipCreateUserException e)
                 {
                     ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
                 }
+
             }
 
             // If we got this far, something failed, redisplay form

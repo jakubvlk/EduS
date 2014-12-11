@@ -12,6 +12,7 @@ namespace EduS_MVC.Controllers
     {
         //
         // GET: /Users/AllUsers
+        
         public ActionResult AllUsers()
         {
             AllUsersModel allUsersModel = new AllUsersModel();
@@ -28,15 +29,6 @@ namespace EduS_MVC.Controllers
             }
 
             return View(allUsersModel);
-        }
-
-        //
-        // POST: /Users/AllUsers
-
-        [HttpPost]
-        public ActionResult Manage()
-        {
-            return View();
         }
     }
 }

@@ -1,6 +1,12 @@
 ﻿@model EduS_MVC.Models.RegisterModel
+
 @{
     ViewBag.Title = "Register";
+
+    var roleItems = Roles.GetAllRoles().Select(role => new SelectListItem
+    {
+        Text = role
+    });
 }
 
 <hgroup class="title">
@@ -18,6 +24,10 @@
             <li>
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Role)
+                @Html.DropDownListFor(m => m.Role, roleItems)
             </li>
             <li>
                 @Html.LabelFor(m => m.Password)

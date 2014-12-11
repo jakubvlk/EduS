@@ -16,6 +16,9 @@
                 @Html.LabelFor(m => m.AllUsers[0].UserId)
             </td>
             <td>
+                Role
+            </td>
+            <td>
                 @Html.LabelFor(m => m.AllUsers[0].UserName)
             </td>
             <td>
@@ -49,6 +52,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(m => m.AllUsers[i].UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].Role)
             </td>
             <td>
                 @Html.DisplayFor(m => m.AllUsers[i].UserName)
