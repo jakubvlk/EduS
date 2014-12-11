@@ -1,0 +1,87 @@
+﻿@model EduS_MVC.Models.AllUsersModel
+
+<h1>
+    All Users
+</h1>
+<table>
+    <tr>
+        <th></th>
+    </tr>
+
+
+    <tr>
+        @if (Model.AllUsers.Count > 0)
+        { 
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].UserId)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].UserName)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].FirstName)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].LastName)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].Phone)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].BirthDate)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].Email)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].Address)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].DegreeBefore)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].DegreeAfter)
+            </td>
+        }
+    </tr>
+    @for (int i = 0; i < Model.AllUsers.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].UserName)
+            </td>  
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].FirstName)
+            </td>   
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].Email)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].Address)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].DegreeBefore)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].DegreeAfter)
+            </td>   
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Create", "Register", "Account")
+    
+ 

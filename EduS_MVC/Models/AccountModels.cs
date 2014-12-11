@@ -21,16 +21,37 @@ namespace EduS_MVC.Models
     [Table("UserProfile")]
     public class UserProfile
     {
+        [Display(Name = "ID")]
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
+
+        [Display(Name = "User name")]
         public string UserName { get; set; }
 
-       public string Phone { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
 
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
+
+        [Display(Name = "Birth Date")]
+        public string BirthDate { get; set; }
+
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Display(Name = "Adddress")]
         public string Address { get; set; }
+
+        [Display(Name = "Degree Before")]
+        public string DegreeBefore { get; set; }
+
+        [Display(Name = "Degree After")]
+        public string DegreeAfter { get; set; }
 
         public List<Faculty> faculties;
 

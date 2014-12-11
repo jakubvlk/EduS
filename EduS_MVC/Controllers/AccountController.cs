@@ -84,8 +84,8 @@ namespace EduS_MVC.Controllers
                               BirthDate = model.BirthDate, Email = model.Email, Address = model.Address,
                               DegreeBefore = model.DegreeBefore, DegreeAfter = model.DegreeAfter
                         });
-                    WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    //WebSecurity.Login(model.UserName, model.Password);
+                    return RedirectToAction("AllUsers", "Users");
                 }
                 catch (MembershipCreateUserException e)
                 {
