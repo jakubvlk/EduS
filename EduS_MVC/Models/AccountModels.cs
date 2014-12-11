@@ -25,6 +25,13 @@ namespace EduS_MVC.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+
+        public List<UserFaculty> usersFaculties;
+
+        public UserProfile()
+        {
+            usersFaculties = new List<UserFaculty>();
+        }
     }
 
     public class RegisterExternalLoginModel

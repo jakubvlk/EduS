@@ -160,6 +160,12 @@ namespace EduS_MVC.Controllers
                     try
                     {
                         changePasswordSucceeded = WebSecurity.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
+
+                        /*// Change other data
+                        string userID = WebSecurity.CurrentUserId.ToString();
+                        var db = new UsersContext();
+                        UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserId.Equals(userID));
+                        //user.*/
                     }
                     catch (Exception)
                     {
