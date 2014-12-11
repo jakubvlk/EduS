@@ -26,11 +26,11 @@ namespace EduS_MVC.Models
         public int UserId { get; set; }
         public string UserName { get; set; }
 
-        public List<UserFaculty> usersFaculties;
+        public List<Faculty> faculties;
 
         public UserProfile()
         {
-            usersFaculties = new List<UserFaculty>();
+            faculties = new List<Faculty>();
         }
     }
 
