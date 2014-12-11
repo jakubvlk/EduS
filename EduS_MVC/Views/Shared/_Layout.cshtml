@@ -20,7 +20,10 @@
                     </section>
                     <nav>
                         <ul id="menu">
-                            <li>@Html.ActionLink("Users", "AllUsers", "Users")</li>
+                            @if (Roles.IsUserInRole("admin"))
+                            { 
+                                <li>@Html.ActionLink("Users", "AllUsers", "Users")</li>
+                            }
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>

@@ -12,7 +12,7 @@ namespace EduS_MVC.Controllers
     {
         //
         // GET: /Users/AllUsers
-        
+        [Authorize(Roles = "admin")]
         public ActionResult AllUsers()
         {
             AllUsersModel allUsersModel = new AllUsersModel();
