@@ -12,13 +12,12 @@ namespace EduS_MVC.Controllers
     {
         //
         // GET: /Users/AllUsers
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult AllUsers()
         {
             AllUsersModel allUsersModel = new AllUsersModel();
             if (ModelState.IsValid)
             {
-                // Insert a new user into the database
                 using (UsersContext db = new UsersContext())
                 {
                     foreach (var theUserProfile in db.UserProfiles.ToList())
