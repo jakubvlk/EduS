@@ -1,0 +1,26 @@
+﻿@model EduS_MVC.Models.HarmonogramModel
+
+<h1>
+    All Users
+</h1>
+<table>
+    <tr>
+        <th>@Html.LabelFor(m => m.Harmonogram)</th>
+    </tr>
+
+    @for (int i = 0; i < Model.Harmonogram.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => m.Harmonogram[i].Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Harmonogram[i].Description)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Create New", "Create", "Harmonogram")
+
