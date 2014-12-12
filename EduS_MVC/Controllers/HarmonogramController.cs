@@ -15,7 +15,8 @@ namespace EduS_MVC.Controllers
         public ActionResult Harmonogram()
         {
             HarmonogramModel harmModel = new HarmonogramModel();
-
+            //harmModel.Harmonogram.Add(new EventModel() { Name = "omg", Description = "wtf" });
+            
             using (HarmonogramContext db = new HarmonogramContext())
             {
                 foreach (var theHarmonogramEvent in db.HarmonogramDB.ToList())
@@ -115,26 +116,24 @@ namespace EduS_MVC.Controllers
         //
         // GET: /Harmonogram/Delete/5
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
-        }
-
-        //
-        // POST: /Harmonogram/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
+            EventModel eventModel;
             try
             {
-                // TODO: Add delete logic here
+                using (HarmonogramContext db = new HarmonogramContext())
+                {
+                    eventModel = db.HarmonogramDB.SingleOrDefault(h => h.EventId == id);
+                    db.HarmonogramDB.Remove(eventModel);
 
-                return RedirectToAction("Index");
+                    db.SaveChanges();
+
+                    return RedirectToAction("Harmonogram");
+                }
             }
             catch
             {
-                return View();
+                return RedirectToAction("Harmonogram");
             }
         }
     }

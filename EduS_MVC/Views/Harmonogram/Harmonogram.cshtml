@@ -20,6 +20,9 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = Model.Harmonogram[i].EventId })
             </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = Model.Harmonogram[i].EventId })
+            </td>
         </tr>
     }
 
