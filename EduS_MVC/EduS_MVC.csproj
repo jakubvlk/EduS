@@ -316,6 +316,7 @@
     <Content Include="Views\Users\AllUsers.cshtml" />
     <Content Include="Views\Harmonogram\Harmonogram.cshtml" />
     <Content Include="Views\Harmonogram\Create.cshtml" />
+    <Content Include="Views\Harmonogram\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

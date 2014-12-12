@@ -66,22 +66,45 @@ namespace EduS_MVC.Controllers
         //
         // GET: /Harmonogram/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            EventModel eventModel;
+            try
+            {
+                using (HarmonogramContext db = new HarmonogramContext())
+                {
+                    eventModel = db.HarmonogramDB.SingleOrDefault(h => h.EventId == id);
+
+                    return View(eventModel);
+                }
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         //
         // POST: /Harmonogram/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int? id, EventModel newEventModel)//(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                using (HarmonogramContext db = new HarmonogramContext())
+                {
+                    EventModel eventModel = db.HarmonogramDB.SingleOrDefault(h => h.EventId == id);
 
-                return RedirectToAction("Index");
+                    eventModel.Name = newEventModel.Name;
+                    eventModel.Description = newEventModel.Description;                    
+
+                    db.Entry(eventModel).State = System.Data.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                
+
+                return RedirectToAction("Harmonogram");
             }
             catch
             {

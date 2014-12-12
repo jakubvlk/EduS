@@ -17,10 +17,15 @@
             <td>
                 @Html.DisplayFor(m => m.Harmonogram[i].Description)
             </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Harmonogram[i].EventId })
+            </td>
         </tr>
     }
 
 </table>
 
-@Html.ActionLink("Create New", "Create", "Harmonogram")
+<p>
+    @Html.ActionLink("Create New", "Create", "Harmonogram")
+</p>
 
