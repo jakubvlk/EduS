@@ -320,8 +320,9 @@
     <Content Include="Views\Harmonogram\Harmonogram.cshtml" />
     <Content Include="Views\Harmonogram\Create.cshtml" />
     <Content Include="Views\Harmonogram\Edit.cshtml" />
-    <Content Include="Views\Subjects\Subject.cshtml" />
-    <Content Include="Views\Subjects\Create.cshtml" />
+    <Content Include="Views\Subject\AllSubjects.cshtml" />
+    <Content Include="Views\Subject\Edit.cshtml" />
+    <Content Include="Views\Subject\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

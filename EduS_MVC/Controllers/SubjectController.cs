@@ -17,9 +17,11 @@ namespace EduS_MVC.Controllers
         {
             //AllSubjectModel
             AllSubjectModel allSubjectModel = new AllSubjectModel();
-            if (ModelState.IsValid)
-            {
+          //  if (ModelState.IsValid)
+        //    {
                 // Insert a new user into the database
+                //allSubjectModel.AllSubjects.Add(new SubjectProfile() {id = 100, Name = "x", Description = "c", Guarantor = "a", Credits ="ff", Prerequsites = "x" });
+            
                 using (SubjectsContext db = new SubjectsContext())
                 {
                     foreach (var theSubjectProfile in db.SubjectProfiles.ToList())
@@ -27,7 +29,7 @@ namespace EduS_MVC.Controllers
                         allSubjectModel.AllSubjects.Add(theSubjectProfile);
                     }
                 }
-            }
+          //  }
 
             return View(allSubjectModel);
         }
@@ -40,7 +42,7 @@ namespace EduS_MVC.Controllers
         }
 
         // POST: /Subjects/Create
-
+  
         [HttpPost]
         public ActionResult Create(SubjectProfile subjectModel)
         {
@@ -49,10 +51,13 @@ namespace EduS_MVC.Controllers
                 using (SubjectsContext db = new SubjectsContext())
                 {
                     db.SubjectProfiles.Add(subjectModel);
+
                     db.Entry(subjectModel).State = System.Data.EntityState.Added;
 
                     db.SaveChanges();
                 }
+
+
 
                 return RedirectToAction("AllSubjects");
             }
@@ -97,8 +102,11 @@ namespace EduS_MVC.Controllers
 
                     subjectModel.Name = newSubjectModel.Name;
                     subjectModel.Description = newSubjectModel.Description;
+                    subjectModel.Guarantor = newSubjectModel.Guarantor;
+                    subjectModel.Prerequsites= newSubjectModel.Prerequsites;
+                    subjectModel.Credits = newSubjectModel.Credits;
 
-                    db.Entry(newSubjectModel).State = System.Data.EntityState.Modified;
+                    db.Entry(subjectModel).State = System.Data.EntityState.Modified;
                     db.SaveChanges();
                 }
 

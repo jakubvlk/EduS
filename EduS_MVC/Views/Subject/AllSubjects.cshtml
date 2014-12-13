@@ -1,0 +1,58 @@
+﻿@model EduS_MVC.Models.AllSubjectModel
+<table>
+    <tr>
+        <th>@Html.LabelFor(m => m.AllSubjects)</th>
+    </tr>
+    <tr>
+        @if (Model.AllSubjects.Count > 0)
+        {
+            <td>
+                @Html.LabelFor(m => m.AllSubjects[0].Name)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllSubjects[0].Description)
+            </td>
+             <td>
+                @Html.LabelFor(m => m.AllSubjects[0].Guarantor)
+            </td>
+             <td>
+                @Html.LabelFor(m => m.AllSubjects[0].Prerequsites)
+            </td>
+             <td>
+                @Html.LabelFor(m => m.AllSubjects[0].Credits)
+            </td>
+        }
+    </tr>
+    
+    @for (int i = 0; i < Model.AllSubjects.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => m.AllSubjects[i].Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllSubjects[i].Description)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllSubjects[i].Guarantor)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllSubjects[i].Prerequsites)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllSubjects[i].Credits)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.AllSubjects[i].id })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = Model.AllSubjects[i].id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Subject")
+</p>

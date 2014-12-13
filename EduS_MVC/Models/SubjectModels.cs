@@ -35,19 +35,19 @@ namespace EduS_MVC.Models
         [Display(Name = "Guarantor")]
         public string Guarantor { get; set; }
 
-        [Display(Name = "Prerequisites")]
-        public string Prerequisites { get; set; }
+        [Display(Name = "Prerequsites")]
+        public string Prerequsites { get; set; }
 
         [Display(Name = "Credits")]
         public string Credits{ get; set; }
 
-       
-        public List<Faculty> faculties;
-
-        public SubjectProfile()
-        {
-            faculties = new List<Faculty>();
-        }
+        /*
+         public List<Faculty> faculties;
+         public SubjectProfile()
+         {
+             faculties = new List<Faculty>();
+         }
+          */
     }
 
 }
