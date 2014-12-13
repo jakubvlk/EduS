@@ -6,6 +6,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using EduS_MVC.Models;
+
+
 
 namespace EduS_MVC
 {
@@ -16,6 +20,7 @@ namespace EduS_MVC
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<SubjectsContext>(null);
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
