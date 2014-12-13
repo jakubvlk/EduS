@@ -31,5 +31,109 @@ namespace EduS_MVC.Controllers
 
             return View(allSubjectModel);
         }
+
+        // GET: /Subjects/Create
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: /Subjects/Create
+
+        [HttpPost]
+        public ActionResult Create(SubjectProfile subjectModel)
+        {
+            try
+            {
+                using (SubjectsContext db = new SubjectsContext())
+                {
+                    db.SubjectProfiles.Add(subjectModel);
+                    db.Entry(subjectModel).State = System.Data.EntityState.Added;
+
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("AllSubjects");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // GET: /Subjects/Edit/5
+
+        public ActionResult Edit(int? id)
+        {
+            SubjectProfile allSubjectModel;
+            try
+            {
+                using (SubjectsContext db = new SubjectsContext())
+                {
+                    allSubjectModel = db.SubjectProfiles.SingleOrDefault(h => h.id == id);
+
+                    return View(allSubjectModel);
+                }
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // POST: /Subjects/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(int? id, SubjectProfile newSubjectModel)
+        {
+            try
+            {
+                using (SubjectsContext db = new SubjectsContext())
+                {
+                    SubjectProfile subjectModel = db.SubjectProfiles.SingleOrDefault(h => h.id == id);
+
+                    subjectModel.Name = newSubjectModel.Name;
+                    subjectModel.Description = newSubjectModel.Description;
+
+                    db.Entry(newSubjectModel).State = System.Data.EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+
+                return RedirectToAction("AllSubjects");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // GET: /Subjects/Delete/5
+
+        public ActionResult Delete(int? id)
+        {
+            SubjectProfile subjectModel;
+            try
+            {
+                using (SubjectsContext db = new SubjectsContext())
+                {
+                    subjectModel = db.SubjectProfiles.SingleOrDefault(h => h.id == id);
+                    db.SubjectProfiles.Remove(subjectModel);
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("AllSubjects");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("AllSubjects");
+            }
+        }
+
     }
 }
