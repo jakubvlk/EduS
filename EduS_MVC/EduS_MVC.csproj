@@ -328,6 +328,7 @@
     <Content Include="Views\Schedule\Schedule.cshtml" />
     <Content Include="Views\Schedule\Edit.cshtml" />
     <Content Include="Views\Schedule\Create.cshtml" />
+    <Content Include="Views\Schedule\EditSubject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

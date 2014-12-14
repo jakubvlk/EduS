@@ -60,6 +60,10 @@ namespace EduS_MVC.Controllers
             return View();
         }
 
+        public ActionResult SelectSubject()
+        {
+            return View();
+        }
         //
         // POST: /Schedule/Create
 
@@ -117,6 +121,10 @@ namespace EduS_MVC.Controllers
                     IndividualModel individualModel = db.ScheduleDB.SingleOrDefault(h => h.Id == id);
                     individualModel.Name = newIndividualModel.Name;
                     individualModel.Description = newIndividualModel.Description;
+                    individualModel.StartDate = newIndividualModel.StartDate;
+                    individualModel.EndDate = newIndividualModel.EndDate;
+                    individualModel.FacultyId = newIndividualModel.FacultyId;
+                    individualModel.Capacity = newIndividualModel.Capacity;
                     db.Entry(individualModel).State = System.Data.EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -152,5 +160,62 @@ namespace EduS_MVC.Controllers
                 return RedirectToAction("Schedule");
             }
         }
+        public ActionResult EditSubject(int? id)
+        {
+            IndividualModel individualModel;
+            try
+            {
+                using (ScheduleContext db = new ScheduleContext())
+                {
+                    individualModel = db.ScheduleDB.SingleOrDefault(h => h.Id == id);
+
+                    return View(individualModel);
+                }
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditSubject(int? id, IndividualModel newIndividualModel)//(int id, FormCollection collection)
+        {
+            try
+            {
+                using (ScheduleContext db = new ScheduleContext())
+                {
+                    IndividualModel individualModel = db.ScheduleDB.SingleOrDefault(h => h.Id == id);
+                 //   individualModel.Name = newIndividualModel.Name;
+                   // individualModel.Description = newIndividualModel.Description;
+                    individualModel.MO9 = newIndividualModel.MO9;
+                    individualModel.MO12 = newIndividualModel.MO12;
+                    individualModel.MO16 = newIndividualModel.MO16;
+                    individualModel.TU9 = newIndividualModel.TU9;
+                    individualModel.TU12 = newIndividualModel.TU12;
+                    individualModel.TU16 = newIndividualModel.TU16;
+                    individualModel.WE9 = newIndividualModel.WE9;
+                    individualModel.WE12 = newIndividualModel.WE12;
+                    individualModel.WE16 = newIndividualModel.WE16;
+                    individualModel.TH9 = newIndividualModel.TH9;
+                    individualModel.TH12 = newIndividualModel.TH12;
+                    individualModel.TH16 = newIndividualModel.TH16;
+                    individualModel.FR9 = newIndividualModel.FR9;
+                    individualModel.FR12 = newIndividualModel.FR12;
+                    individualModel.FR16 = newIndividualModel.FR16;
+                    db.Entry(individualModel).State = System.Data.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Schedule");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+  
+     
+   
     }
 }

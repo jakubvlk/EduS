@@ -34,6 +34,7 @@ namespace EduS_MVC.Controllers
             return View(allSubjectModel);
         }
 
+     
         // GET: /Subjects/Create
 
         public ActionResult Create()

@@ -13,6 +13,19 @@
             <td>
                 @Html.LabelFor(m => m.Schedule[0].Description)
             </td>
+            <td>
+                @Html.LabelFor(m => m.Schedule[0].StartDate)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.Schedule[0].EndDate)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.Schedule[0].FacultyId)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.Schedule[0].Capacity)
+            </td>
+            
         }
     </tr>
 
@@ -26,10 +39,25 @@
                 @Html.DisplayFor(m => m.Schedule[i].Description)
             </td>
             <td>
+                @Html.DisplayFor(m => m.Schedule[i].StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Schedule[i].EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Schedule[i].FacultyId)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Schedule[i].Capacity)
+            </td>
+            <td>
                 @Html.ActionLink("Edit", "Edit", new { id = Model.Schedule[i].Id })
             </td>
             <td>
                 @Html.ActionLink("Delete", "Delete", new { id = Model.Schedule[i].Id })
+            </td>
+            <td>
+                @Html.ActionLink("EditSubject", "EditSubject", new { id = Model.Schedule[i].Id })
             </td>
         </tr>
     }
