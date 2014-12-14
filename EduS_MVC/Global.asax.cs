@@ -21,6 +21,7 @@ namespace EduS_MVC
         protected void Application_Start()
         {
             Database.SetInitializer<SubjectsContext>(null);
+            Database.SetInitializer<ScheduleContext>(null);
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

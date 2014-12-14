@@ -1,0 +1,43 @@
+﻿@model EduS_MVC.Models.ScheduleModel
+
+<table>
+    <tr>
+        <th>@Html.LabelFor(m => m.Schedule)</th>
+    </tr>
+    <tr>
+        @if (Model.Schedule.Count > 0)
+        {
+            <td>
+                @Html.LabelFor(m => m.Schedule[0].Name)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.Schedule[0].Description)
+            </td>
+        }
+    </tr>
+
+    @for (int i = 0; i < Model.Schedule.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => m.Schedule[i].Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Schedule[i].Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Schedule[i].Id })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = Model.Schedule[i].Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Schedule")
+</p>
+
+

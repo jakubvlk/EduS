@@ -1,0 +1,40 @@
+﻿@model EduS_MVC.Models.IndividualModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Edit schedule</h2>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Schedule</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+                @Html.LabelFor(m => m.Description)
+                @Html.TextBoxFor(m => m.Description)
+        </ol>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Schedule", "Schedule")
+</div>
+
+
