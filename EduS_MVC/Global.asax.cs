@@ -25,6 +25,7 @@ namespace EduS_MVC
 
             Database.SetInitializer<HarmonogramContext>(null);
             Database.SetInitializer<UsersContext>(null);
+            Database.SetInitializer<FacultiesContext>(null);
 
             AreaRegistration.RegisterAllAreas();
 

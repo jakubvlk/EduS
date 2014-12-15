@@ -184,6 +184,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\HarmonogramController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
@@ -195,7 +196,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ScheduleModels.cs" />
-    <Compile Include="Models\Faculty.cs" />
+    <Compile Include="Models\FacultyModels.cs" />
     <Compile Include="Models\HarmonogramModels.cs" />
     <Compile Include="Models\SubjectModels.cs" />
     <Compile Include="Models\Subjects.cs" />

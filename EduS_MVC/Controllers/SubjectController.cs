@@ -39,7 +39,8 @@ namespace EduS_MVC.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            SubjectProfile sp = new SubjectProfile();
+            return View(sp);
         }
 
         // POST: /Subjects/Create

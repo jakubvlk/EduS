@@ -12,7 +12,7 @@ namespace EduS_MVC.Models
         [Display(Name = "AllSubjects")]
         public List<SubjectProfile> AllSubjects{ get; set; }
 
-         public AllSubjectModel()
+        public AllSubjectModel()
         {
             AllSubjects = new List<SubjectProfile>();
         }

@@ -70,11 +70,11 @@ namespace EduS_MVC.Models
         [Display(Name = "Degree After")]
         public string DegreeAfter { get; set; }
 
-        public List<Faculty> faculties;
+        public List<FacultyModel> faculties;
 
         public UserProfile()
         {
-            faculties = new List<Faculty>();
+            faculties = new List<FacultyModel>();
         }
     }
 

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Globalization;
+using System.Web.Mvc;
 using System.Web.Security;
 
 namespace EduS_MVC.Models
@@ -29,6 +30,9 @@ namespace EduS_MVC.Models
         [Display(Name = "Name")]
         public string Name { get; set; }
 
+        //[Display(Name = "Faculty")]
+        //public int FacultyId { get; set; }
+
         [Display(Name = "Description")]
         public string Description { get; set; }
 
@@ -41,6 +45,8 @@ namespace EduS_MVC.Models
         [Display(Name = "Credits")]
         public string Credits{ get; set; }
 
+
+
         /*
          public List<Faculty> faculties;
          public SubjectProfile()
@@ -48,6 +54,21 @@ namespace EduS_MVC.Models
              faculties = new List<Faculty>();
          }
           */
-    }
 
+        public SelectList GetAllGurantors()
+        {
+            try
+            {
+                var roleItems = Roles.GetUsersInRole("gurantor");
+
+                return (new SelectList(roleItems));
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+
+        }
+    }
 }
