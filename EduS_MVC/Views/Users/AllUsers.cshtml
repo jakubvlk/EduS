@@ -1,14 +1,15 @@
 ﻿@model EduS_MVC.Models.AllUsersModel
 
-<h1>
-    All Users
-</h1>
+@{
+    ViewBag.Title = "All Users";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
 <table>
-    <tr>
-        <th></th>
-    </tr>
-
-
     <tr>
         @if (Model.AllUsers.Count > 0)
         { 

@@ -141,9 +141,7 @@ namespace EduS_MVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
         
-
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -153,15 +151,17 @@ namespace EduS_MVC.Models
         public string LastName { get; set; }
 
         //[Required]
+        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone")]
         public string Phone { get; set; }
 
         //[Required]
-        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [DataType(DataType.Date)]
         [Display(Name = "Birth Date")]
         public DateTime BirthDate { get; set; }
 
         //[Required]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -210,6 +210,7 @@ namespace EduS_MVC.Models
         public string Phone { get; set; }
 
         //[Required]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
 

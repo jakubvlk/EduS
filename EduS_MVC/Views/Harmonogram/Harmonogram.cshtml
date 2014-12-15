@@ -1,9 +1,15 @@
 ﻿@model EduS_MVC.Models.HarmonogramModel
 
+@{
+    ViewBag.Title = "Harmonogram";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new harmonogram.</h2>
+</hgroup>
+
 <table>
-    <tr>
-        <th>@Html.LabelFor(m => m.Harmonogram)</th>
-    </tr>
     <tr>
         @if (Model.Harmonogram.Count > 0)
         {
