@@ -30,6 +30,8 @@ namespace EduS_MVC.Models
         [Display(Name = "Name")]
         public string Name { get; set; }
 
+         // pokud to tu budu chtit pridat, tak je treba vytvorit novou classu pro vytvareni noveho modelu, ktera bude mit property typu SelectedItem (nebo neco podobneho) a predet controller
+         // nebo to nejak rovnou predelat na int ve view, ale to asi moc nejde...
         //[Display(Name = "Faculty")]
         //public int FacultyId { get; set; }
 
