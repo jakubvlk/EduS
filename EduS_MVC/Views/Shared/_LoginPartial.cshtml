@@ -8,7 +8,6 @@
     </text>
 } else {
     <ul>
-        @*Pak odkomentit!!!*@
         @*@if (Roles.IsUserInRole("admin"))*@ 
         @*{  *@
             <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>

@@ -31,18 +31,23 @@
             <td>
                 @Html.DisplayFor(m => m.Harmonogram[i].Description)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.Harmonogram[i].EventId })
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { id = Model.Harmonogram[i].EventId })
-            </td>
+            @if (Roles.IsUserInRole("admin"))
+            { 
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Harmonogram[i].EventId })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.Harmonogram[i].EventId })
+                </td>
+            }
         </tr>
     }
 
 </table>
 
-<p>
-    @Html.ActionLink("Create New", "Create", "Harmonogram")
-</p>
-
+@if (Roles.IsUserInRole("admin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", "Harmonogram")
+    </p>
+}

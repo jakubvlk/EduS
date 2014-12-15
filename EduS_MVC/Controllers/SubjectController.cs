@@ -36,7 +36,7 @@ namespace EduS_MVC.Controllers
 
      
         // GET: /Subjects/Create
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             SubjectProfile sp = new SubjectProfile();
@@ -44,7 +44,7 @@ namespace EduS_MVC.Controllers
         }
 
         // POST: /Subjects/Create
-  
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(SubjectProfile subjectModel)
         {
@@ -71,7 +71,7 @@ namespace EduS_MVC.Controllers
 
         //
         // GET: /Subjects/Edit/5
-
+        [Authorize(Roles = "Admin, gurantor")]
         public ActionResult Edit(int? id)
         {
             SubjectProfile allSubjectModel;
@@ -92,7 +92,7 @@ namespace EduS_MVC.Controllers
 
         //
         // POST: /Subjects/Edit/5
-
+        [Authorize(Roles = "Admin, gurantor")]
         [HttpPost]
         public ActionResult Edit(int? id, SubjectProfile newSubjectModel)
         {
@@ -123,7 +123,7 @@ namespace EduS_MVC.Controllers
 
         //
         // GET: /Subjects/Delete/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             SubjectProfile subjectModel;

@@ -42,17 +42,26 @@
             <td>
                 @Html.DisplayFor(m => m.AllSubjects[i].Credits)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.AllSubjects[i].id })
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { id = Model.AllSubjects[i].id })
-            </td>
+            @if (Roles.IsUserInRole("admin") || Roles.IsUserInRole("gurantor"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.AllSubjects[i].id })
+                </td>
+            }
+            @if (Roles.IsUserInRole("admin"))
+            {
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.AllSubjects[i].id })
+                </td>
+            }
         </tr>
     }
 
 </table>
 
-<p>
-    @Html.ActionLink("Create New", "Create", "Subject")
-</p>
+@if (Roles.IsUserInRole("admin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", "Subject")
+    </p>
+}

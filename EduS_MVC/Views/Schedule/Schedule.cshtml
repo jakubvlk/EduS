@@ -50,22 +50,28 @@
             <td>
                 @Html.DisplayFor(m => m.Schedule[i].Capacity)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.Schedule[i].Id })
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { id = Model.Schedule[i].Id })
-            </td>
-            <td>
-                @Html.ActionLink("EditSubject", "EditSubject", new { id = Model.Schedule[i].Id })
-            </td>
+            @if (Roles.IsUserInRole("admin"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Schedule[i].Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.Schedule[i].Id })
+                </td>
+                <td>
+                    @Html.ActionLink("EditSubject", "EditSubject", new { id = Model.Schedule[i].Id })
+                </td>
+            }
         </tr>
     }
 
 </table>
 
-<p>
-    @Html.ActionLink("Create New", "Create", "Schedule")
-</p>
+@if (Roles.IsUserInRole("admin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", "Schedule")
+    </p>
+}
 
 

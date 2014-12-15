@@ -54,7 +54,7 @@ namespace EduS_MVC.Controllers
 
         //
         // GET: /Schedule/Create
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -66,7 +66,7 @@ namespace EduS_MVC.Controllers
         }
         //
         // POST: /Schedule/Create
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(IndividualModel individualModel)
         {
@@ -89,7 +89,7 @@ namespace EduS_MVC.Controllers
 
         //
         // GET: /Schedule/Edit/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             IndividualModel individualModel;
@@ -110,7 +110,7 @@ namespace EduS_MVC.Controllers
 
         //
         // POST: /Schedule/Edit/5
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(int? id, IndividualModel newIndividualModel)//(int id, FormCollection collection)
         {
@@ -139,7 +139,7 @@ namespace EduS_MVC.Controllers
 
         //
         // POST: /Schedule/Delete/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             IndividualModel individualModel;
@@ -160,6 +160,8 @@ namespace EduS_MVC.Controllers
                 return RedirectToAction("Schedule");
             }
         }
+
+        [Authorize(Roles = "Admin")]
         public ActionResult EditSubject(int? id)
         {
             IndividualModel individualModel;
@@ -179,6 +181,7 @@ namespace EduS_MVC.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditSubject(int? id, IndividualModel newIndividualModel)//(int id, FormCollection collection)
         {
             try

@@ -60,7 +60,7 @@ namespace EduS_MVC.Controllers
         //
         // GET: /Account/Register
 
-        [AllowAnonymous]
+       [Authorize(Roles = "admin")]
         public ActionResult Register()
         {
            // model.RolesList = Roles.GetAllRoles().ToList();
@@ -72,7 +72,7 @@ namespace EduS_MVC.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
@@ -134,7 +134,7 @@ namespace EduS_MVC.Controllers
 
         //
         // GET: /Account/Manage
-
+        [Authorize(Roles = "admin")]
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -152,6 +152,7 @@ namespace EduS_MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Manage(ChangeUserDataModel model)
         {
             bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));

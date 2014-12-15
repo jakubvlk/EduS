@@ -31,7 +31,7 @@ namespace EduS_MVC.Controllers
        
         //
         // GET: /Harmonogram/Create
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -41,6 +41,7 @@ namespace EduS_MVC.Controllers
         // POST: /Harmonogram/Create
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(EventModel eventModel)
         {
             try
@@ -66,7 +67,7 @@ namespace EduS_MVC.Controllers
 
         //
         // GET: /Harmonogram/Edit/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             EventModel eventModel;
@@ -87,7 +88,7 @@ namespace EduS_MVC.Controllers
 
         //
         // POST: /Harmonogram/Edit/5
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(int? id, EventModel newEventModel)//(int id, FormCollection collection)
         {
@@ -115,7 +116,7 @@ namespace EduS_MVC.Controllers
 
         //
         // GET: /Harmonogram/Delete/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             EventModel eventModel;
