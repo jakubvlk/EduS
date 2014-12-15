@@ -35,9 +35,12 @@ namespace EduS_MVC.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int EventId { get; set; }
 
+        [Required]
         [Display(Name = "Event Name")]
+        [DataType(DataType.Password)]
         public string Name { get; set; }
 
+        [Required]
         [Display(Name = "Event Description")]
         public string Description { get; set; }
     }

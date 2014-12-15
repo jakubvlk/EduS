@@ -54,8 +54,9 @@ namespace EduS_MVC.Models
         [Display(Name = "Phone")]
         public string Phone { get; set; }
 
+        [DataType(DataType.Date)]
         [Display(Name = "Birth Date")]
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -126,6 +127,7 @@ namespace EduS_MVC.Models
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
+        [Required]
         [Display(Name = "Role")]
         public string Role { get; set; }
 
@@ -142,7 +144,7 @@ namespace EduS_MVC.Models
 
         
 
-        //[Required]
+        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
@@ -157,7 +159,7 @@ namespace EduS_MVC.Models
         //[Required]
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Birth Date")]
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         //[Required]
         [Display(Name = "Email")]
