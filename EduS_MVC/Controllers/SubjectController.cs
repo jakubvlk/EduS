@@ -39,19 +39,29 @@ namespace EduS_MVC.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            SubjectProfile sp = new SubjectProfile();
-            return View(sp);
+            NewSubjectProfile nsp = new NewSubjectProfile();
+            return View(nsp);
         }
 
         // POST: /Subjects/Create
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Create(SubjectProfile subjectModel)
+        public ActionResult Create(NewSubjectProfile newSubjectModel)
         {
             try
             {
                 using (SubjectsContext db = new SubjectsContext())
                 {
+                    SubjectProfile subjectModel = new SubjectProfile();
+                    subjectModel.Credits = newSubjectModel.Credits;
+                    subjectModel.Description = newSubjectModel.Description;
+                    subjectModel.Guarantor = newSubjectModel.Guarantor;
+                    subjectModel.Name = newSubjectModel.Name;
+                    subjectModel.Prerequsites = newSubjectModel.Prerequsites;
+                    subjectModel.FacultyId = newSubjectModel.FacultyID;
+
+
+                    
                     db.SubjectProfiles.Add(subjectModel);
 
                     db.Entry(subjectModel).State = System.Data.EntityState.Added;
@@ -70,7 +80,7 @@ namespace EduS_MVC.Controllers
         }
 
         //
-        // GET: /Subjects/Edit/5
+        // GET: /Subjects/Edit
         [Authorize(Roles = "Admin, gurantor")]
         public ActionResult Edit(int? id)
         {
@@ -91,7 +101,7 @@ namespace EduS_MVC.Controllers
         }
 
         //
-        // POST: /Subjects/Edit/5
+        // POST: /Subjects/Edit
         [Authorize(Roles = "Admin, gurantor")]
         [HttpPost]
         public ActionResult Edit(int? id, SubjectProfile newSubjectModel)
@@ -122,7 +132,7 @@ namespace EduS_MVC.Controllers
         }
 
         //
-        // GET: /Subjects/Delete/5
+        // GET: /Subjects/Delete
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {

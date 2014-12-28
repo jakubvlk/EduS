@@ -217,6 +217,11 @@ namespace EduS_MVC.Controllers
             }
         }
 
+        void GetSubjectsName()
+        {
+
+        }
+
   
      
    

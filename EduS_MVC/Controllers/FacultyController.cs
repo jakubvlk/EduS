@@ -14,19 +14,19 @@ namespace EduS_MVC.Controllers
             return View();
         }
 
-        public SelectList GetFacultiesList()
+        public List<SelectListItem> GetFacultiesList()
         {
-            List<string> facultiesList = new List<string>();
+            List<SelectListItem> facultiesList = new List<SelectListItem>();
             
             using (FacultiesContext db = new FacultiesContext())
             {
                 foreach (var theFaculty in db.Faculties.ToList())
                 {
-                    facultiesList.Add(theFaculty.Name);
+                    facultiesList.Add(new SelectListItem() { Selected = false, Text = theFaculty.Name, Value = theFaculty.FacultyId.ToString() });
                 }
             }
 
-            return new SelectList(facultiesList);
+            return facultiesList;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model EduS_MVC.Models.SubjectProfile
+﻿@model EduS_MVC.Models.NewSubjectProfile
 
 @{
     ViewBag.Title = "Create";
@@ -6,8 +6,13 @@
     //var roleItems = Roles.GetUsersInRole("gurantor");
     //SelectList sl = new SelectList(roleItems);
 
-    //EduS_MVC.Controllers.FacultyController fc = new EduS_MVC.Controllers.FacultyController();
-    //var faculties = fc.GetFacultiesList();
+    EduS_MVC.Controllers.FacultyController fc = new EduS_MVC.Controllers.FacultyController();
+    //List<SelectListItem> tmp = new List<SelectListItem>();
+    //tmp.Add(new SelectListItem() { Selected = true, Text = "FEI", Value = "1"});
+    //tmp.Add(new SelectListItem() { Selected = true, Text = "FMMI", Value = "2"});
+    var faculties = fc.GetFacultiesList();
+    
+    
 }
 
 <script src="~/Scripts/jquery-1.8.2.min.js"></script>
@@ -30,12 +35,11 @@
             <li>
                 @Html.LabelFor(m => m.Name)
                 @Html.TextBoxFor(m => m.Name)
-                @*@Html.LabelFor(m => m.FacultyId)
-                @Html.DropDownListFor(m => m.FacultyId, faculties)*@
+                @Html.LabelFor(m => m.FacultyID)
+                @Html.DropDownListFor(m => m.FacultyID, faculties)
                 @Html.LabelFor(m => m.Description)
                 @Html.TextBoxFor(m => m.Description)
                 @Html.LabelFor(m => m.Guarantor)
-                @*@Html.TextBoxFor(m => m.Guarantor)*@
                 @Html.DropDownListFor(m => m.Guarantor, Model.GetAllGurantors())
                 @Html.LabelFor(m => m.Prerequsites)
                 @Html.TextBoxFor(m => m.Prerequsites)
