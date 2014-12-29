@@ -7,6 +7,9 @@
     {
         Text = role
     });
+    
+    EduS_MVC.Controllers.FacultyController fc = new EduS_MVC.Controllers.FacultyController();
+    var faculties = fc.GetFacultiesList();
 }
 
 <hgroup class="title">
@@ -44,6 +47,10 @@
             <li>
                 @Html.LabelFor(m => m.LastName)
                 @Html.TextBoxFor(m => m.LastName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.FacultyId)
+                @Html.DropDownListFor(m => m.FacultyId, faculties)
             </li>
             <li>
                 @Html.LabelFor(m => m.Phone)

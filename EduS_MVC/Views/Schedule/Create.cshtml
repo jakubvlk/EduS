@@ -3,6 +3,9 @@
 
 @{
     ViewBag.Title = "Create";
+
+    EduS_MVC.Controllers.FacultyController fc = new EduS_MVC.Controllers.FacultyController();
+    var faculties = fc.GetFacultiesList();
 }
 
 <script src="~/Scripts/jquery-1.8.2.min.js"></script>
@@ -32,7 +35,7 @@
                 @Html.LabelFor(m => m.EndDate)
                 @Html.TextBoxFor(m => m.EndDate)
                 @Html.LabelFor(m => m.FacultyId)
-                @Html.TextBoxFor(m => m.FacultyId)
+                @Html.DropDownListFor(m => m.FacultyId, faculties)
                 @Html.LabelFor(m => m.Capacity)
                 @Html.TextBoxFor(m => m.Capacity)
             </li>

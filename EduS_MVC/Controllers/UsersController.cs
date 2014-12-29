@@ -29,5 +29,29 @@ namespace EduS_MVC.Controllers
 
             return View(allUsersModel);
         }
+
+        public UserProfile GetUserByID(int userID)
+        {
+            AllUsersModel allUsersModel = new AllUsersModel();
+            using (UsersContext db = new UsersContext())
+            {
+               return db.UserProfiles.FirstOrDefault(u => u.UserId == userID);
+            }
+            
+            return null;
+        }
+
+        public void SetUserSchedule(int userID, int? scheduleId)
+        {
+            AllUsersModel allUsersModel = new AllUsersModel();
+            using (UsersContext db = new UsersContext())
+            {
+                UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserId == userID);
+
+                user.ScheduleId = scheduleId;
+
+                db.SaveChanges();
+            }
+        }
     }
 }

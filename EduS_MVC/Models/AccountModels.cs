@@ -51,6 +51,12 @@ namespace EduS_MVC.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Display(Name = "Faculty")]
+        public int FacultyId { get; set; }
+
+        [Display(Name = "Schedule")]
+        public int? ScheduleId { get; set; }
+
         [Display(Name = "Phone")]
         public string Phone { get; set; }
 
@@ -69,13 +75,6 @@ namespace EduS_MVC.Models
 
         [Display(Name = "Degree After")]
         public string DegreeAfter { get; set; }
-
-        public List<FacultyModel> faculties;
-
-        public UserProfile()
-        {
-            faculties = new List<FacultyModel>();
-        }
     }
 
     public class RegisterExternalLoginModel
@@ -149,6 +148,9 @@ namespace EduS_MVC.Models
         //[Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
+        [Display(Name = "Faculty")]
+        public int FacultyId { get; set; }
 
         //[Required]
         [DataType(DataType.PhoneNumber)]

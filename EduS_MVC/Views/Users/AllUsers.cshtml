@@ -2,6 +2,9 @@
 
 @{
     ViewBag.Title = "All Users";
+    
+    EduS_MVC.Controllers.FacultyController fc = new EduS_MVC.Controllers.FacultyController();
+    var faculties = fc.GetFacultiesList();    
 }
 
 <hgroup class="title">
@@ -27,6 +30,12 @@
             </td>
             <td>
                 @Html.LabelFor(m => m.AllUsers[0].LastName)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].FacultyId)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllUsers[0].ScheduleId)
             </td>
             <td>
                 @Html.LabelFor(m => m.AllUsers[0].Phone)
@@ -65,6 +74,12 @@
             </td>   
             <td>
                 @Html.DisplayFor(m => m.AllUsers[i].LastName)
+            </td>
+            <td>
+                @Html.DisplayName(faculties[Model.AllUsers[i].FacultyId - 1].Text)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.AllUsers[i].ScheduleId)
             </td>
             <td>
                 @Html.DisplayFor(m => m.AllUsers[i].Phone)

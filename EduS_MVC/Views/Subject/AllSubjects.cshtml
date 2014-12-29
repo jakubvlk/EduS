@@ -1,4 +1,10 @@
 ﻿@model EduS_MVC.Models.AllSubjectModel
+
+@{
+    EduS_MVC.Controllers.FacultyController fc = new EduS_MVC.Controllers.FacultyController();
+    var faculties = fc.GetFacultiesList();
+}
+
 <table>
     <tr>
         <th>@Html.LabelFor(m => m.AllSubjects)</th>
@@ -11,6 +17,9 @@
             </td>
             <td>
                 @Html.LabelFor(m => m.AllSubjects[0].Description)
+            </td>
+            <td>
+                @Html.LabelFor(m => m.AllSubjects[0].FacultyId)
             </td>
              <td>
                 @Html.LabelFor(m => m.AllSubjects[0].Guarantor)
@@ -32,6 +41,9 @@
             </td>
             <td>
                 @Html.DisplayFor(m => m.AllSubjects[i].Description)
+            </td>
+            <td>
+                @Html.DisplayName(faculties[Model.AllSubjects[i].FacultyId - 1].Text)
             </td>
             <td>
                 @Html.DisplayFor(m => m.AllSubjects[i].Guarantor)

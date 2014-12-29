@@ -84,7 +84,7 @@ namespace EduS_MVC.Controllers
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password, propertyValues:
                         new { FirstName = model.FirstName, LastName = model.LastName, Phone = model.Phone,
                               BirthDate = model.BirthDate, Email = model.Email, Address = model.Address,
-                              DegreeBefore = model.DegreeBefore, DegreeAfter = model.DegreeAfter
+                              DegreeBefore = model.DegreeBefore, DegreeAfter = model.DegreeAfter, FacultyId = model.FacultyId
                         });
                     //WebSecurity.Login(model.UserName, model.Password);
 
@@ -134,7 +134,7 @@ namespace EduS_MVC.Controllers
 
         //
         // GET: /Account/Manage
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =

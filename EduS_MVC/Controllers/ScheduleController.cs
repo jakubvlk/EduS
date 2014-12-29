@@ -217,9 +217,28 @@ namespace EduS_MVC.Controllers
             }
         }
 
-        void GetSubjectsName()
+        public ActionResult SpecificSchedule(int? scheduleId)
         {
+            using (ScheduleContext db = new ScheduleContext())
+            {
+                IndividualModel individualModel = db.ScheduleDB.SingleOrDefault(h => h.Id == scheduleId);
 
+                return View(individualModel);
+            }            
+        }
+
+        [Authorize(Roles = "Student")]
+        public ActionResult SelectSchedule(int userId, int scheduleId)
+        {
+            try
+            {
+                new UsersController().SetUserSchedule(userId, scheduleId);
+                return RedirectToAction("Schedule");
+            }
+            catch
+            {
+                return RedirectToAction("Schedule");
+            }
         }
 
   

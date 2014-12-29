@@ -155,5 +155,38 @@ namespace EduS_MVC.Controllers
             }
         }
 
+        public List<SelectListItem> GetSubjectForFaculties(int facultyId)
+        {
+            List<SelectListItem> subjectList = new List<SelectListItem>();
+
+            using (SubjectsContext db = new SubjectsContext())
+            {
+                foreach (var theSubject in db.SubjectProfiles.ToList())
+                {
+                    if (theSubject.FacultyId == facultyId)
+                    {
+                        subjectList.Add(new SelectListItem() { Selected = false, Text = theSubject.Name, Value = theSubject.id.ToString() });
+                    }
+                }
+            }
+
+            return subjectList;
+        }
+
+        public List<SelectListItem> GetAllSubjects()
+        {
+            List<SelectListItem> subjectList = new List<SelectListItem>();
+
+            using (SubjectsContext db = new SubjectsContext())
+            {
+                foreach (var theSubject in db.SubjectProfiles.ToList())
+                {
+                    subjectList.Add(new SelectListItem() { Selected = false, Text = theSubject.Name, Value = theSubject.id.ToString() });
+                }
+            }
+
+            return subjectList;
+        }
+
     }
 }

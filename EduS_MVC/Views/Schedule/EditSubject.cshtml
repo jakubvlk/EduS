@@ -22,11 +22,36 @@
         <table>
 
             <tr><th>Day</th><th>   9:00-12:00   </th><th>   12:00-16:00   </th><th>   16:00-20:00   </th></tr>
-            <tr><td>Monday</td><td>@Html.TextBoxFor(m => m.MO9)</td><td>@Html.TextBoxFor(m => m.MO12)</td><td>@Html.TextBoxFor(m => m.MO16)</td></tr>
-            <tr><td>Tuesday</td><td>@Html.TextBoxFor(m => m.TU9)</td><td>@Html.TextBoxFor(m => m.TU12)</td><td>@Html.TextBoxFor(m => m.TU16)</td></tr>
-            <tr><td>Wednesday</td><td>@Html.TextBoxFor(m => m.WE9)</td><td>@Html.TextBoxFor(m => m.WE12)</td><td>@Html.TextBoxFor(m => m.WE16)</td></tr>
-            <tr><td>Thursday</td><td>@Html.TextBoxFor(m => m.TH9)</td><td>@Html.TextBoxFor(m => m.TH12)</td><td>@Html.TextBoxFor(m => m.TH16)</td></tr>
-            <tr><td>Friday</td><td>@Html.TextBoxFor(m => m.FR9)</td><td>@Html.TextBoxFor(m => m.FR12)</td><td>@Html.TextBoxFor(m => m.FR16)</td></tr>
+            <tr>
+                <td>Monday</td>
+                <td>@Html.DropDownListFor(m => m.MO9, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.MO12, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.MO16, Model.GetAllSubjectsForFaculty())</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>@Html.DropDownListFor(m => m.TU9, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.TU12, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.TU16, Model.GetAllSubjectsForFaculty())</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>@Html.DropDownListFor(m => m.WE9, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.WE12, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.WE16, Model.GetAllSubjectsForFaculty())</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>@Html.DropDownListFor(m => m.TH9, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.TH12, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.TH16, Model.GetAllSubjectsForFaculty())</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>@Html.DropDownListFor(m => m.FR9, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.FR12, Model.GetAllSubjectsForFaculty())</td>
+                <td>@Html.DropDownListFor(m => m.FR16, Model.GetAllSubjectsForFaculty())</td>
+            </tr>
 
         </table>
         <p>
